@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Logstash Pipeline Monitor</title>
+
+    <link rel="stylesheet"
+          href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- Sidebar -->
+
+    <aside class="sidebar">
+
+        <h2>LogStack</h2>
+
+        <ul>
+
+            <li>Dashboard</li>
+
+            <li>Pipelines</li>
+
+            <li>Analytics</li>
+
+            <li>Alerts</li>
+
+            <li>Settings</li>
+
+        </ul>
+
+    </aside>
+
+
+
+    <!-- Main Content -->
+
+    <main class="main-content">
+
+        <!-- Header -->
+
+       <header class="header">
+
+    <h1>Pipeline Monitoring Dashboard</h1>
+
+    <div class="header-right">
+
+        <span id="liveClock"></span>
+
+        <button id="refreshBtn">
+            Refresh
+        </button>
+
+    </div>
+
+</header>
+
+
+
+        <!-- Statistics Cards -->
+
+        <section class="cards">
+
+            <div class="card">
+
+                <h3>Running Pipelines</h3>
+
+                <p id="runningPipelines">0</p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Stopped Pipelines</h3>
+
+                <p id="stoppedPipelines">0</p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Events Received</h3>
+
+                <p id="eventsReceived">0</p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Events Processed</h3>
+
+                <p id="eventsProcessed">0</p>
+
+            </div>
+
+            <div class="card">
+
+                <h3>Throughput</h3>
+
+                <p id="throughput">0</p>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Charts -->
+
+        <section class="charts">
+
+            <div class="chart-box">
+
+                <h2>Pipeline Health</h2>
+
+                <canvas id="healthChart"></canvas>
+
+            </div>
+
+            <div class="chart-box">
+
+                <h2>Events Per Minute</h2>
+
+                <canvas id="eventsChart"></canvas>
+
+            </div>
+
+            <div class="chart-box">
+
+                <h2>Pipeline Status</h2>
+
+                <canvas id="statusChart"></canvas>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Pipeline Table -->
+
+        <section class="table-section">
+
+    <div class="table-header">
+
+    <h2>Pipeline Status</h2>
+
+    <div class="table-controls">
+
+        <button class="filter-btn" data-filter="All">
+            All
+        </button>
+
+        <button class="filter-btn" data-filter="Running">
+            Running
+        </button>
+
+        <button class="filter-btn" data-filter="Stopped">
+            Stopped
+        </button>
+
+        <input
+            type="text"
+            id="searchPipeline"
+            placeholder="Search Pipeline..."
+        >
+
+    </div>
+
+</div>
+
+    <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>Pipeline</th>
+
+                        <th>Status</th>
+
+                        <th>Events In</th>
+
+                        <th>Events Out</th>
+
+                        <th>Health</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody id="pipelineTable">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+
+
+        <!-- Alerts -->
+
+        <section class="alerts">
+
+            <h2>Recent Alerts</h2>
+
+            <ul id="alertList">
+
+            </ul>
+
+        </section>
+
+    </main>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="js/charts.js"></script>
+
+    <script src="js/script.js"></script>
+
+</body>
+
+</html>
